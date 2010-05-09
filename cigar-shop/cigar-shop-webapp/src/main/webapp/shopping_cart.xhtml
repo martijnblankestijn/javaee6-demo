@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/WEB-INF/templates/default.xhtml">
+    <ui:define name="content">
+        <h1>#{m.title_shopping_cart}</h1>
+
+        <h:form id="shopping_cart">
+            <h:messages for="shoppingCartItems"/>
+            <h:dataTable id="shoppingCartItems" value="#{shoppingCart.items}" var="item" rowClasses="itemrow"
+                         title="#{m.title_shopping_cart}">
+                <h:column>
+                    <f:facet name="header"><h:outputText value="#{m.label_product_name}"/></f:facet>
+                    <h:outputText value="#{item.product.name}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header"><h:outputText value="#{m.label_price}"/></f:facet>
+                    <h:outputText value="#{item.product.price}" styleClass="amount"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header"><h:outputText value="#{m.label_quantity_small}"/></f:facet>
+                    <h:inputText id="quantity" value="#{item.quantity}" required="true" immediate="true"
+                                 onchange="submit()" maxlength="2" size="2"
+                                 valueChangeListener="#{shoppingCart.processQuantityChange}">
+                        <f:validateLongRange minimum="1" maximum="99"/>
+                    </h:inputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header"><h:outputText value="#{m.label_subtotal}"/></f:facet>
+                    <h:outputText value="#{item.cartItemAmount}" styleClass="amount"/>
+                </h:column>
+                <h:column>
+                    <h:commandButton id="remove_item" immediate="true" action="#{shoppingCart.remove(item.product)}"
+                                     value="#{m.button_remove}"/>
+                </h:column>
+            </h:dataTable>
+
+
+            <h:panelGrid columns="3">
+                <h:outputLabel for="selectShippingMethod" value="#{m.label_shipping_method}:"/>
+                <h:selectOneMenu id="selectShippingMethod" required="true" converter="#{shippingConverter}"
+                                 immediate="true" onchange="submit()" value="#{shoppingCart.shipping}">
+                    <f:selectItems
+                            value="#{shippingMethods}"/>
+                </h:selectOneMenu>
+                <h:message for="selectShippingMethod" errorClass="invalid"/>
+
+                <h:outputLabel for="totalAmount" value="#{m.label_total_amount}:"/>
+                <h:outputText id="totalAmount" value="#{shoppingCart.totalAmount}"/>
+                <h:message for="totalAmount" errorClass="invalid"/>
+            </h:panelGrid>
+
+            <h:panelGrid columns="3">
+                <h:commandButton id="add_more" value="#{m.button_add_more}"
+                                 action="#{searchCatalog.initializeProductCategorySelection}"/>
+                <h:commandButton id="check_availability" value="#{m.button_check_availability}"
+                                 action="#{shoppingCart.updateElementValues}"/>
+                <h:commandButton id="checkout" value="#{m.button_checkout}" action="#{shoppingCart.checkout}"
+                                 disabled="#{empty shoppingCart.items}"/>
+            </h:panelGrid>
+
+        </h:form>
+    </ui:define>
+</ui:composition>

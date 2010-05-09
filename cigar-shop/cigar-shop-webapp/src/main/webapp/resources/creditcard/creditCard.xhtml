@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:composite="http://java.sun.com/jsf/composite">
+<h:head>
+    <title>This will not be present in rendered output</title>
+</h:head>
+
+<h:body>
+
+    <composite:interface>
+    </composite:interface>
+
+    <composite:implementation>
+        <h:panelGrid columns="3" title="#{m.group_credit_card}">
+            <h:outputLabel for="creditCardType" value="#{m.label_credit_card_type}:"/>
+            <h:selectOneMenu id="creditCardType" required="true" value="#{creditCardFormBean.type}">
+                <f:selectItems
+                        value="#{creditCardTypes}"/>
+            </h:selectOneMenu>
+            <h:message for="creditCardType" errorClass="invalid"/>
+
+            <h:outputLabel for="creditCardNumber" value="#{m.label_credit_card_number}:"/>
+            <h:inputText id="creditCardNumber" value="#{creditCardFormBean.number}"/>
+            <h:message for="creditCardNumber" errorClass="invalid"/>
+
+            <h:outputLabel for="expirationMonth" value="#{m.label_expiration_date}:"/>
+            <h:panelGrid columns="3">
+                <h:inputText id="expirationMonth" value="#{creditCardFormBean.expirationMonth}"
+                             size="2" maxlength="2">
+                </h:inputText>
+                /
+                <h:inputText id="expirationYear" value="#{creditCardFormBean.expirationYear}"
+                             size="4" maxlength="4">
+                </h:inputText>
+            </h:panelGrid>
+            <h:panelGrid columns="1">
+                <h:message for="expirationMonth" errorClass="invalid"/>
+                <h:message for="expirationYear" errorClass="invalid"/>
+            </h:panelGrid>
+
+        </h:panelGrid>
+
+
+    </composite:implementation>
+
+</h:body>
+
+</html>

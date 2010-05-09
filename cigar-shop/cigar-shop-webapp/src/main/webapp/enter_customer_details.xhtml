@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html" xmlns:cc="http://java.sun.com/jsf/composite/creditcard"
+                template="/WEB-INF/templates/default.xhtml">
+    <ui:define name="content">
+        <h1>#{m.title_billing_information}</h1>
+
+        <h:form id="shopping_cart">
+
+            <h:panelGrid columns="3">
+                <h:outputLabel for="totalAmount" value="#{m.label_total_amount}:"/>
+                <h:outputText id="totalAmount" value="#{shoppingCart.totalAmount}"/>
+                <h:message for="totalAmount" errorClass="invalid"/>
+            </h:panelGrid>
+
+            <h:panelGrid columns="3" title="#{m.group_customer}">
+                <h:outputLabel for="firstName" value="#{m.label_first_name}:"/>
+                <h:inputText id="firstName" value="#{customerFormBean.firstName}" size="40" maxlength="40"/>
+                <h:message for="firstName" errorClass="invalid"/>
+
+                <h:outputLabel for="lastName" value="#{m.label_last_name}:"/>
+                <h:inputText id="lastName" value="#{customerFormBean.lastName}" size="40" maxlength="40"/>
+                <h:message for="lastName" errorClass="invalid"/>
+
+                <h:outputLabel for="addressLine" value="#{m.label_address_line }:"/>
+                <h:inputText id="addressLine" value="#{customerFormBean.addressLine}" size="40" maxlength="40"/>
+                <h:message for="addressLine" errorClass="invalid"/>
+
+                <h:outputLabel for="city" value="#{m.label_city}:"/>
+                <h:inputText id="city" value="#{customerFormBean.city}" size="40" maxlength="40"/>
+                <h:message for="city" errorClass="invalid"/>
+
+                <h:outputLabel for="state" value="#{m.label_state}:"/>
+                <h:inputText id="state" value="#{customerFormBean.state}" size="40" maxlength="40"/>
+                <h:message for="state" errorClass="invalid"/>
+
+                <h:outputLabel for="zipCode" value="#{m.label_zip_code}:"/>
+                <h:inputText id="zipCode" value="#{customerFormBean.zipCode}" size="8" maxlength="8"/>
+                <h:message for="zipCode" errorClass="invalid"/>
+
+                <h:outputLabel for="emailTo" value="#{m.label_email_address}:"/>
+                <h:inputText id="emailTo" value="#{customerFormBean.emailAddress}" converter="#{emailConverter}"
+                             size="40" maxlength="40"/>
+                <h:message for="emailTo" errorClass="invalid"/>
+            </h:panelGrid>
+
+            <cc:creditCard/>
+
+
+            <h:commandButton id="place_order" action="#{processOrderBean.processOrder}"
+                             value="#{m.button_place_order}"/>
+
+        </h:form>
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>place_orders</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">place_orders</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/cigar-shop-webapp/category_select.jsf</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectAndWait</td>
+	<td>product:select_category</td>
+	<td>value=2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>product:memberTable:7:select_product</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>product_details:add_product</td>
+	<td></td>
+</tr>
+<tr>
+	<td>typeAndWait</td>
+	<td>shopping_cart:shoppingCartItems:0:quantity</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>shopping_cart:add_more</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectAndWait</td>
+	<td>product:select_category</td>
+	<td>value=0</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>product:memberTable:26:select_product</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>product_details:add_product</td>
+	<td></td>
+</tr>
+<tr>
+	<td>typeAndWait</td>
+	<td>shopping_cart:shoppingCartItems:0:quantity</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>typeAndWait</td>
+	<td>shopping_cart:shoppingCartItems:1:quantity</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>shopping_cart:check_availability</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>shopping_cart:add_more</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectAndWait</td>
+	<td>product:select_category</td>
+	<td>value=2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>product:memberTable:9:select_product</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>product_details:add_product</td>
+	<td></td>
+</tr>
+<tr>
+	<td>typeAndWait</td>
+	<td>shopping_cart:shoppingCartItems:2:quantity</td>
+	<td>4</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>shopping_cart:add_more</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectAndWait</td>
+	<td>product:select_category</td>
+	<td>value=2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>product:memberTable:5:select_product</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>product_details:add_product</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>shopping_cart:shoppingCartItems:2:remove_item</td>
+	<td></td>
+</tr>
+<tr>
+	<td>typeAndWait</td>
+	<td>shopping_cart:shoppingCartItems:2:quantity</td>
+	<td>3</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>shopping_cart:check_availability</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectAndWait</td>
+	<td>shopping_cart:selectShippingMethod</td>
+	<td>label=International Shipping bla bla EUR 12.25</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>shopping_cart:checkout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shopping_cart:firstName</td>
+	<td>Martijn</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shopping_cart:lastName</td>
+	<td>Blankestijn</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shopping_cart:addressLine</td>
+	<td>Heereweg 25</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shopping_cart:city</td>
+	<td>Castricum</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shopping_cart:state</td>
+	<td>Noord-Holland</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shopping_cart:zipCode</td>
+	<td>1901MA</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shopping_cart:emailTo</td>
+	<td>martijn@bakkuminafrika.nl</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shopping_cart:j_idt27:creditCardNumber</td>
+	<td>1234567812345678</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shopping_cart:j_idt27:expirationMonth</td>
+	<td>12</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>shopping_cart:j_idt27:expirationYear</td>
+	<td>2010</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>shopping_cart:place_order</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

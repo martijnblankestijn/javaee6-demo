@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/WEB-INF/templates/default.xhtml">
+    <f:metadata>
+        <f:viewParam name="orderNumber" value="#{orderBean.orderNumber}">
+            <f:convertNumber integerOnly="true"/>
+        </f:viewParam>
+        <f:event type="preRenderView" listener="#{orderBean.retrieve}"/>
+    </f:metadata>
+    <ui:define name="content">
+        <h1>#{m.title_order_confirmation}</h1>
+
+        <h:messages/>
+
+        <h:dataTable id="orderLines" value="#{orderBean.order.orderLines}" var="line" rowClasses="itemrow"
+                     title="#{m.group_shopping_cart}" columnClasses="normal,amount,numeric,amount">
+            <h:column>
+                <f:facet name="header"><h:outputText value="#{m.label_product_name}"/></f:facet>
+                <h:outputText value="#{line.productName}"/>
+            </h:column>
+            <h:column rowHeader="iets">
+                <f:facet name="header"><h:outputText value="#{m.label_price}"/></f:facet>
+                <h:outputText value="#{line.price}" styleClass="amount"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header"><h:outputText value="#{m.label_quantity_small}"/></f:facet>
+                <h:outputText value="#{line.quantity}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header"><h:outputText value="#{m.label_amount}"/></f:facet>
+                <h:outputText value="#{line.amount}" styleClass="amount"/>
+            </h:column>
+        </h:dataTable>
+        <br/>
+        <br/>
+        <br/>
+        <h:panelGrid columns="2">
+            <h:outputText value="#{m.label_total_amount}: "/>
+            <h:outputText value="#{orderBean.order.amount}"/>
+
+            <h:outputText value="#{m.label_order_number}: "/>
+            <h:outputText value="#{orderBean.orderNumber}"/>
+        </h:panelGrid>
+
+        <p>#{m.text_order_shipped_to}</p>
+
+        <p>
+            #{orderBean.order.customer.addressLine}, #{orderBean.order.customer.city},
+            <br/>
+            #{orderBean.order.customer.state}.
+        </p>
+
+        <p>
+            #{m.text_confirmation_mail_sent_to} #{orderBean.order.customer.emailAddress}.
+        </p>
+    </ui:define>
+</ui:composition>

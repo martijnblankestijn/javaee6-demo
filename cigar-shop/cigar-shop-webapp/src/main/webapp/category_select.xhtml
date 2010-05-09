@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/WEB-INF/templates/default.xhtml">
+    <ui:define name="content">
+        <h1>#{m.title_find_cigar}</h1>
+
+        <h:form id="product">
+            <table>
+                <tr>
+                    <th>
+                        <h:outputLabel for="select_category" value="#{m.label_product_category}: "/>
+                    </th>
+                    <td>
+                        <h:selectOneMenu id="select_category" required="true"
+                                         valueChangeListener="#{searchCatalog.processCategorySelection}"
+                                         value="#{searchCatalog.currentCategory}" immediate="true" onchange="submit()">
+                            <f:selectItem id="item1" itemLabel="#{m.label_pick_one}" itemValue="-1"/>
+                            <f:selectItems
+                                    value="#{productCategories}"/>
+                        </h:selectOneMenu>
+                        <h:message for="select_category" errorClass="invalid"/>
+                    </td>
+                </tr>
+            </table>
+            <h:dataTable id="memberTable" rendered="#{searchCatalog.categorySelected}" value="#{searchCatalog.products}"
+                         var="product">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{m.label_cigar}"/>
+                    </f:facet>
+                    <h:commandLink action="#{productController.productSelected(product.id)}"
+                                   id="select_product" value="#{product.name}"/>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+    </ui:define>
+</ui:composition>

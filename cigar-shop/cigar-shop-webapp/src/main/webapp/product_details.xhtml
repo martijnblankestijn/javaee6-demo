@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/WEB-INF/templates/default.xhtml">
+    <ui:define name="content">
+        <h1>#{m.title_product_details}</h1>
+
+        <h:form id="product_details">
+            <table>
+                <tr>
+                    <th>
+                        <h:outputLabel for="name" value="#{m.label_product_name}:"/>
+                    </th>
+                    <td>
+                        <h:outputText id="name" value="#{productController.selectedProduct.name}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <h:outputLabel for="description" value="#{m.label_description}:"/>
+                    </th>
+                    <td>
+                        <h:outputText id="description" value="#{productController.selectedProduct.description}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <h:outputLabel for="in_stock" value="#{m.label_availability}:"/>
+                    </th>
+                    <td>
+                        <h:outputText id="in_stock" value="#{m.in_stock}"
+                                      rendered="#{productController.selectedProduct.available}"/>
+                        <h:outputText id="sold_out" value="Sold out"
+                                      rendered="#{!productController.selectedProduct.available}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <h:outputLabel for="price" value="#{m.label_price}:"/>
+                    </th>
+                    <td>
+                        <h:outputText id="price" value="#{productController.selectedProduct.price}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <h:outputLabel for="category" value="#{m.label_product_category}:"/>
+                    </th>
+                    <td>
+                        <h:outputText id="category" value="#{productController.selectedProduct.category}"
+                                      converter="#{enumTypeI18NConverter}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+
+                    </th>
+                    <td>
+                        <h:commandButton action="category_select"
+                                         id="cancel" value="#{m.button_cancel}" immediate="true"/>
+                        <h:commandButton action="#{shoppingCart.addProduct(productController.selectedProduct)}"
+                                         id="add_product" value="#{m.button_add_shoppingcart}"
+                                         rendered="#{productController.selectedProduct.available}"/>
+                        <h:outputText rendered="#{!productController.selectedProduct.available}"
+                                      value="#{m.product_not_available}"/>
+                    </td>
+                </tr>
+
+            </table>
+        </h:form>
+    </ui:define>
+</ui:composition>

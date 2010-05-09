@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://cursus.ordina.nl/inventory/domain/v1"
+           xmlns:tns="http://cursus.ordina.nl/inventory/domain/v1"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="getAvailability" type="tns:getAvailability"/>
+
+  <xs:element name="getAvailabilityResponse" type="tns:getAvailabilityResponse"/>
+
+  <xs:complexType name="getAvailability">
+    <xs:sequence>
+      <xs:element name="availabilityRequest" type="tns:AvailabilityRequest" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAvailabilityResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:AvailabilityResponse"/>
+    </xs:sequence>
+  </xs:complexType>
+    <xs:complexType name="AvailabilityRequest">
+        <xs:sequence>
+            <xs:element name="product-id" type="xs:int" />
+            <xs:element name="manufacturer-id" type="xs:int" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="AvailabilityResponse">
+        <xs:sequence>
+            <xs:element name="product-id" type="xs:int" />
+            <xs:element name="available" type="xs:int" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
+
