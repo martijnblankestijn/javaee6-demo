@@ -1,21 +1,24 @@
-insert into Manufacturer values(1, 'Big Cigar');
-insert into Manufacturer values(2, 'Small Cigar');
-
-insert into PRODUCT_DEFINITION (ID, NAME, PACKAGE, CATEGORY, PRICE, MANUFACTURER_ID, DESCRIPTION)
-values(1, '5 Vegas Triple-A', 'Single', 0,  7   , 1, 'Another fantastic blend from the award winning 5 Vegas line, Triple-A combines tobaccos from Nicaragua''s top growing regions with an oily broadleaf maduro wrapper to create a full-bodied array of complex flavors guaranteed to stimulate your palate for hours of enjoyment.')
-,(2, 'Cain by Oliva'   , 'Single', 0,  7.8 , 1, 'Considered one of the best new releases in 2009, Cain provides substantial flavor and body as it contains 100% Nicaraguan ligero long leaves from Condega, Jalapa and Esteli while maintaining a smooth character due to its triple-fermented tobacco.')
-;
+--insert into PRODUCT_DEFINITION (ID, NAME, PACKAGE, CATEGORY, PRICE, MANUFACTURER_ID, DESCRIPTION)
+--values(1, '5 Vegas Triple-A', 'Single', 0,  7   , 1, 'Another fantastic blend from the award winning 5 Vegas line, Triple-A combines tobaccos from Nicaragua''s top growing regions with an oily broadleaf maduro wrapper to create a full-bodied array of complex flavors guaranteed to stimulate your palate for hours of enjoyment.')
+--,(2, 'Cain by Oliva'   , 'Single', 0,  7.8 , 1, 'Considered one of the best new releases in 2009, Cain provides substantial flavor and body as it contains 100% Nicaraguan ligero long leaves from Condega, Jalapa and Esteli while maintaining a smooth character due to its triple-fermented tobacco.')
+--;
 
 
-==========================================
+-- ==========================================
 delete from ORDER_LINE;
 delete from ORDERS;
 delete from PRODUCT_DEFINITION;
 delete from INVENTORY;
 delete from MANUFACTURER;
-delete from MANUFACTURER;
 
+--insert into Manufacturer values(1, 'Big Cigar');
+--insert into Manufacturer values(2, 'Small Cigar');
 insert into MANUFACTURER (ID, NAME) VALUES (1, 'DrewEstateCigars');
+insert into MANUFACTURER (ID, NAME) VALUES (2, 'privatelabel');
+insert into MANUFACTURER (ID, NAME) VALUES (3, 'viewcigar');
+
+
+
 insert into PRODUCT_DEFINITION (ID, CATEGORY, DESCRIPTION, NAME, PACKAGE, PRICE, CURRENCY_CODE, MANUFACTURER_ID) VALUES (690, 2, 'ACID 5 by Drew Estate', 'ACID 5 by Drew Estate', 'package', 48.9, 'EUR',1);
 insert into INVENTORY (PRODUCT_ID, INVENTORY) VALUES( 690, 20);
 insert into PRODUCT_DEFINITION (ID, CATEGORY, DESCRIPTION, NAME, PACKAGE, PRICE, CURRENCY_CODE, MANUFACTURER_ID) VALUES (3, 2, 'ACID by Drew Estate', 'ACID by Drew Estate', 'package', 72.6, 'EUR',1);
@@ -38,14 +41,12 @@ insert into PRODUCT_DEFINITION (ID, CATEGORY, DESCRIPTION, NAME, PACKAGE, PRICE,
 insert into INVENTORY (PRODUCT_ID, INVENTORY) VALUES( 145, 20);
 insert into PRODUCT_DEFINITION (ID, CATEGORY, DESCRIPTION, NAME, PACKAGE, PRICE, CURRENCY_CODE, MANUFACTURER_ID) VALUES (697, 0, 'Tabak Especial by Drew Estate', 'Tabak Especial by Drew Estate', 'package', 27, 'EUR',1);
 insert into INVENTORY (PRODUCT_ID, INVENTORY) VALUES( 697, 20);
-insert into MANUFACTURER (ID, NAME) VALUES (2, 'privatelabel');
 insert into PRODUCT_DEFINITION (ID, CATEGORY, DESCRIPTION, NAME, PACKAGE, PRICE, CURRENCY_CODE, MANUFACTURER_ID) VALUES (419, 2, 'Aging Room', 'Aging Room', 'package', 4.1, 'EUR',2);
 insert into INVENTORY (PRODUCT_ID, INVENTORY) VALUES( 419, 20);
 insert into PRODUCT_DEFINITION (ID, CATEGORY, DESCRIPTION, NAME, PACKAGE, PRICE, CURRENCY_CODE, MANUFACTURER_ID) VALUES (507, 1, 'Cigar.com Exclusives', 'Cigar.com Exclusives', 'package', 47.2, 'EUR',2);
 insert into INVENTORY (PRODUCT_ID, INVENTORY) VALUES( 507, 20);
 insert into PRODUCT_DEFINITION (ID, CATEGORY, DESCRIPTION, NAME, PACKAGE, PRICE, CURRENCY_CODE, MANUFACTURER_ID) VALUES (449, 0, 'House Blends', 'House Blends', 'package', 6.6, 'EUR',2);
 insert into INVENTORY (PRODUCT_ID, INVENTORY) VALUES( 449, 20);
-insert into MANUFACTURER (ID, NAME) VALUES (3, 'viewcigar');
 insert into PRODUCT_DEFINITION (ID, CATEGORY, DESCRIPTION, NAME, PACKAGE, PRICE, CURRENCY_CODE, MANUFACTURER_ID) VALUES (734, 2, '5 Vegas Cask Strength II', '5 Vegas Cask Strength II', 'package', 54.6, 'EUR',3);
 insert into INVENTORY (PRODUCT_ID, INVENTORY) VALUES( 734, 20);
 insert into PRODUCT_DEFINITION (ID, CATEGORY, DESCRIPTION, NAME, PACKAGE, PRICE, CURRENCY_CODE, MANUFACTURER_ID) VALUES (309, 2, '5 Vegas Classic', '5 Vegas Classic', 'package', 71.1, 'EUR',3);

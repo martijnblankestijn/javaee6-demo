@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>cigar-shop-parent</artifactId>
+        <groupId>nl.ordina.scea.cigar.shop</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>cigar-shop-db</artifactId>
+    <packaging>jar</packaging>
+
+    <name>cigar-shop-db</name>
+
+    <properties>
+        <!--
+         Explicitly declaring the source encoding eliminates the following message:
+         [WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+      -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                   <groupId>org.codehaus.mojo</groupId>
+                   <artifactId>sql-maven-plugin</artifactId>
+                   <version>1.4</version>
+
+                   <dependencies>
+                     <dependency>
+                       <groupId>org.apache.derby</groupId>
+                       <artifactId>derbyclient</artifactId>
+                       <version>10.5.3.0_1</version>
+                     </dependency>
+                   </dependencies>
+
+                   <!-- common configuration shared by all executions -->
+                   <configuration>
+                     <driver>org.apache.derby.jdbc.ClientDriver</driver>
+                     <url>jdbc:derby://localhost:1527/sun-appserv-samples</url>
+                     <username>APP</username>
+                     <password>APP</password>
+                   </configuration>
+
+                   <executions>
+                     <execution>
+                        <id>load-test-data</id>
+                         
+                       <phase>integration-test</phase>
+                       <goals>
+                         <goal>execute</goal>
+                       </goals>
+                       <configuration>
+                         <srcFiles>
+                           <srcFile>src/main/sql/content.sql</srcFile>
+                         </srcFiles>
+                       </configuration>
+                     </execution>
+                   </executions>
+                 </plugin>
+
+        </plugins>
+    </build>
+</project>
