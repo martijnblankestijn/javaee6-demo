@@ -1,0 +1,21 @@
+Intro_afsluiting
+klaar?
+
+CDI
+Sheet 8 verwijderen? Grootste gedeelte is al aan de orde geweest bij beantypes. Elementen worden later nog een keer uitgelegd.
+Voor de rest goed
+
+JSF 2.0:
+p.2 GET support was er toch al?
+Navigatievoorbeeld p.4 redir??
+Nog lege sheet over Managed beans versus CDI
+Bookmarkable URL's
+Voorbeeld
+
+EJB 3.1:
+Example Embedded Container
+
+JPA 2.0:
+Introduction
+Voorbeeld Criteria API
+Voorbeeld Pessimistic Locking
