@@ -1,1 +1,4 @@
 *.iml
+cigar-shop-db/target/
+cigar-shop-domain/target/
+cigar-shop-webapp/target/
