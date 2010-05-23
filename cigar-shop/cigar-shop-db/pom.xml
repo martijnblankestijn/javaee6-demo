@@ -27,42 +27,42 @@
     <build>
         <plugins>
             <plugin>
-                   <groupId>org.codehaus.mojo</groupId>
-                   <artifactId>sql-maven-plugin</artifactId>
-                   <version>1.4</version>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>sql-maven-plugin</artifactId>
+                <version>1.4</version>
 
-                   <dependencies>
-                     <dependency>
-                       <groupId>org.apache.derby</groupId>
-                       <artifactId>derbyclient</artifactId>
-                       <version>10.5.3.0_1</version>
-                     </dependency>
-                   </dependencies>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.derby</groupId>
+                        <artifactId>derbyclient</artifactId>
+                        <version>10.5.3.0_1</version>
+                    </dependency>
+                </dependencies>
 
-                   <!-- common configuration shared by all executions -->
-                   <configuration>
-                     <driver>org.apache.derby.jdbc.ClientDriver</driver>
-                     <url>jdbc:derby://localhost:1527/sun-appserv-samples</url>
-                     <username>APP</username>
-                     <password>APP</password>
-                   </configuration>
+                <!-- common configuration shared by all executions -->
+                <configuration>
+                    <driver>org.apache.derby.jdbc.ClientDriver</driver>
+                    <url>jdbc:derby://localhost:1527/sun-appserv-samples</url>
+                    <username>APP</username>
+                    <password>APP</password>
+                </configuration>
 
-                   <executions>
-                     <execution>
+                <executions>
+                    <execution>
                         <id>load-test-data</id>
-                         
-                       <phase>integration-test</phase>
-                       <goals>
-                         <goal>execute</goal>
-                       </goals>
-                       <configuration>
-                         <srcFiles>
-                           <srcFile>src/main/sql/content.sql</srcFile>
-                         </srcFiles>
-                       </configuration>
-                     </execution>
-                   </executions>
-                 </plugin>
+
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>execute</goal>
+                        </goals>
+                        <configuration>
+                            <srcFiles>
+                                <srcFile>src/main/sql/content.sql</srcFile>
+                            </srcFiles>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 
         </plugins>
     </build>
