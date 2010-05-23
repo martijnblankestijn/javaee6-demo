@@ -5,6 +5,7 @@ drop table MANUFACTURER;
 drop table SHIPPING;
 drop table CUSTOMER;
 drop table SEQUENCE;
+drop table INVENTORY;
 
 
 create table SEQUENCE (

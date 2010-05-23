@@ -7,6 +7,16 @@
     <groupId>nl.ordina.scea.inventory.service.contract</groupId>
     <artifactId>inventory-service-contract</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <scm>
+	    <connection>scm:git:https://martijnblankestijn@github.com/martijnblankestijn/javaee6-demo.git</connection>
+	    <!--
+	    <connection>scm:git:git@github.com:martijnblankestijn/javaee6-demo.git</connection>
+	    -->
+		            <!--
+	    <connection>scm:git:ssh://github.com/</connection>
+				         <developerConnection>scm:git:[fetch=]http://mywebserver.org/path_to_repository[push=]ssh://username@otherserver:8898/~/repopath.git</developerConnection>
+					         -->
+    </scm>
 
     <repositories>
         <!-- Repository for Java EE dependencies. -->
