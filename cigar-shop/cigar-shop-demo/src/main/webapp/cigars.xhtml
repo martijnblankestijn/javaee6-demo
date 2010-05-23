@@ -6,7 +6,7 @@
         <h1>Cigars</h1>
 
         <h:form>
-            <h:dataTable value="#{cigarBean.cigars}" var="cigar">
+            <h:dataTable value="#{cigarBean.cigars}" var="cigar" border="1">
 
                 <h:column>
                     <f:facet name="header">Name</f:facet>
@@ -19,6 +19,6 @@
                 </h:column>
             </h:dataTable>
 
-            <h:link  outcome="newcigar" value="Nieuwe"/> 
+            <h:link  outcome="newcigar" value="Toevoegen"/> 
         </h:form>
 </ui:composition>
