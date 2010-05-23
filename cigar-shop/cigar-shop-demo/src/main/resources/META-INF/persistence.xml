@@ -6,6 +6,5 @@
     <persistence-unit name="cigar-shop-demo" transaction-type="JTA">
         <jta-data-source>jdbc/__default</jta-data-source>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
-        <!--<class>nl.ordina.javaee6.domain.Cigar</class>-->
     </persistence-unit>
 </persistence>
