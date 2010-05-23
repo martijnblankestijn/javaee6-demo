@@ -6,14 +6,23 @@ import nl.ordina.javaee6.service.CigarService;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 
 @RequestScoped
 @Named
 public class CreateCigarBean {
-    @Inject private CigarService cigarService;
+    @Inject
+    private CigarService cigarService;
 
+    @NotNull
+    @Size(min = 3, max = 20)
     private String name;
+
+    @NotNull
+    @Digits(integer = 3, fraction = 2)
     private BigDecimal price;
 
     public String create() {
