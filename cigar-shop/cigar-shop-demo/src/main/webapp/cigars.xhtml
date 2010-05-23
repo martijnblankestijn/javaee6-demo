@@ -3,7 +3,12 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:h="http://java.sun.com/jsf/html">
-        <h1>Cigars</h1>
+    <html xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:body>
+
+        <h1>Cigaren</h1>
 
         <h:form>
             <h:dataTable value="#{cigarBean.cigars}" var="cigar" border="1">
@@ -19,6 +24,8 @@
                 </h:column>
             </h:dataTable>
 
-            <h:link  outcome="newcigar" value="Toevoegen"/> 
+            <h:link outcome="newcigar" value="Toevoegen"/>
         </h:form>
+    </h:body>
+    </html>
 </ui:composition>
