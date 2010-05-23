@@ -6,7 +6,7 @@
     <artifactId>inventory-service-contract</artifactId>
     <version>1.1-SNAPSHOT</version>
     <scm>
-	    <connection>scm:git:https://martijnblankestijn@github.com/martijnblankestijn/javaee6-demo.git</connection>
+	    <connection>scm:git:https://martijnblankestijn@github.com/martijnblankestijn/javaee6-demo.git/inventory-service-contract</connection>
 	    <!--
 	    <connection>scm:git:git@github.com:martijnblankestijn/javaee6-demo.git</connection>
 	    -->
