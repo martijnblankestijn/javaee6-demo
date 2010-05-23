@@ -4,7 +4,7 @@
 
     <groupId>nl.ordina.scea.inventory.service.contract</groupId>
     <artifactId>inventory-service-contract</artifactId>
-    <version>1.0</version>
+    <version>1.1-SNAPSHOT</version>
     <scm>
 	    <connection>scm:git:https://martijnblankestijn@github.com/martijnblankestijn/javaee6-demo.git</connection>
 	    <!--
