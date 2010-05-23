@@ -10,12 +10,13 @@ import javax.persistence.PersistenceContext;
 @Named
 @ApplicationScoped
 public class AvailabilityServiceJpa implements AvailabilityService {
-    @PersistenceContext private EntityManager em;
+    @PersistenceContext
+    private EntityManager em;
 
     @Override
     public int availability(int productId) {
         Inventory inventory = em.find(Inventory.class, productId);
-        if (inventory==null) {
+        if (inventory == null) {
             throw new IllegalArgumentException("No product found for product id " + productId);
         }
         return inventory.getInventory();
