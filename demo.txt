@@ -1,0 +1,28 @@
+JPA 2.0
+
+Alle jpa definitie in Cigar verwijderen
+Service geeft alleen een lijst terug van een zelf aangemaakte cigaar
+==============================================
+=
+= Na de introductie
+=
+==============================================
+Cigar aanpassen ==> toevoegen  @Entiteit en @Id
+Formuleren van de query m.b.v. JPQL. Aangeven dat dit ook al mogelijk was in JPA 1.0
+
+
+==============================================
+=
+= Na Criteria API
+=
+==============================================
+Herformuleren van de query op basis van de Criteria API. TypeSafe!
+
+
+Opslaan van nieuw object --> TransactionRequiredException
+
+==> Integratie CDI - EJB, toevoegen van @Stateless op Service
+
+==> Integratie met de Validation specificatie
+Afdwingen constraint lengte naam
+
