@@ -4,6 +4,12 @@ import nl.ordina.javaee6.domain.Cigar;
 import nl.ordina.javaee6.service.CigarService;
 
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.inject.Model;
+import javax.enterprise.inject.New;
+import javax.enterprise.inject.Produces;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.validation.constraints.Digits;
@@ -11,39 +17,46 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 
-@RequestScoped
-@Named
+@Model
 public class CreateCigarBean {
-    @Inject
     private CigarService cigarService;
+    private FacesContext ctx;
+    private ExternalContext external;
+    private Cigar cigar;
 
-    @NotNull
-    @Size(min = 3, max = 20)
-    private String name;
+    public CreateCigarBean() {
+    }
 
-    @NotNull
-    @Digits(integer = 3, fraction = 2)
-    private BigDecimal price;
+    @Inject
+    public CreateCigarBean(@New Cigar cigar, ExternalContext external, FacesContext ctx, CigarService cigarService) {
+        this.external = external;
+        this.ctx = ctx;
+        this.cigarService = cigarService;
+        this.cigar = cigar;
+    }
+
 
     public String create() {
-        Cigar cigar = new Cigar(name, price);
         cigarService.persist(cigar);
-        return "cigars";
+
+        external.getFlash().setKeepMessages(true);
+        ctx.addMessage(null, new FacesMessage("Give that man a cigar!!"));
+        return "cigars?faces-redirect=true";
     }
 
-    public String getName() {
-        return name;
+    public Cigar getCigar() {
+        return cigar;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    @Produces
+    @RequestScoped
+    public FacesContext createFacesContext() {
+        return FacesContext.getCurrentInstance();
     }
 
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
+    @Produces
+    @RequestScoped
+    public ExternalContext createExternalContext(FacesContext context) {
+        return context.getExternalContext();
     }
 }

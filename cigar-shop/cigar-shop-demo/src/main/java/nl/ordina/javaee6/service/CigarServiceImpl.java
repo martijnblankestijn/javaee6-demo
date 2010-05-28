@@ -13,26 +13,18 @@ import java.util.List;
 
 @Stateless
 public class CigarServiceImpl implements CigarService {
-
-    @PersistenceContext
-    private EntityManager em;
+    @PersistenceContext private EntityManager em;
 
     @Override
     public List<Cigar> getCigars() {
         System.out.println("Getting list of cigars");
+        return em.createQuery("select c from Cigar c").getResultList();
 
-        CriteriaBuilder cb = em.getCriteriaBuilder();
-        final CriteriaQuery<Cigar> query = cb.createQuery(Cigar.class);
-        final Root<Cigar> from = query.from(Cigar.class);
-        query.orderBy(cb.asc(from.get(Cigar_.name)));
-
-        return em.createQuery(query).getResultList();
     }
 
     @Override
     public void persist(Cigar cigar) {
         System.out.println("Persisting new cigar");
-
         em.persist(cigar);
     }
 }

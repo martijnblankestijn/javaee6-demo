@@ -3,26 +3,32 @@ package nl.ordina.javaee6.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 
 @Entity
 public class Cigar {
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue
     private Long id;
 
     @NotNull
     @Size(min = 3, max = 20)
     private String name;
+
+    @NotNull(message = "You better not forget the price, boy")
+    @Digits(integer = 3, fraction = 2)
     private BigDecimal price;
 
-    protected Cigar() {
+    public Cigar() {
     }
 
-    public Cigar(final String name, final BigDecimal price) {
+    public void setName(String name) {
         this.name = name;
+    }
+
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 

@@ -1,31 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
-                xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:f="http://java.sun.com/jsf/core"
-                xmlns:h="http://java.sun.com/jsf/html">
-    <html xmlns="http://www.w3.org/1999/xhtml"
-          xmlns:h="http://java.sun.com/jsf/html"
-          xmlns:ui="http://java.sun.com/jsf/facelets">
-    <h:body>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://java.sun.com/jsf/core">
+<h:body>
 
-        <h1>Cigaren</h1>
+    <h1>Cigaren</h1>
+    <h:messages />
 
-        <h:form>
-            <h:dataTable value="#{cigarBean.cigars}" var="cigar" border="1">
+    <h:form>
+        <h:dataTable value="#{cigarBean.cigars}" var="cigar" border="1">
 
-                <h:column>
-                    <f:facet name="header">Name</f:facet>
-                    #{cigar.name}
-                </h:column>
+            <h:column>
+                <f:facet name="header">Name</f:facet>
+                #{cigar.name}
+            </h:column>
 
-                <h:column>
-                    <f:facet name="header">Price</f:facet>
-                    #{cigar.price}
-                </h:column>
-            </h:dataTable>
+            <h:column>
+                <f:facet name="header">Price</f:facet>
+                #{cigar.price}
+            </h:column>
+        </h:dataTable>
 
-            <h:link outcome="newcigar" value="Toevoegen"/>
-        </h:form>
-    </h:body>
-    </html>
-</ui:composition>
+        <h:link outcome="newcigar" value="Toevoegen"/>
+    </h:form>
+</h:body>
+</html>

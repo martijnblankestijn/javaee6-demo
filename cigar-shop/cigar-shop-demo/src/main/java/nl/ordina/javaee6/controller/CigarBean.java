@@ -6,28 +6,22 @@ import nl.ordina.javaee6.service.CigarService;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.List;
 
-@RequestScoped
-@Named
+@Model
 public class CigarBean {
-    @Inject
-    private CigarService cigarService;
-
     private List<Cigar> cigars;
 
-    @PostConstruct
-    private void init() {
+    public CigarBean(){
+    }
+
+    @Inject
+    public CigarBean(CigarService cigarService) {
         cigars = cigarService.getCigars();
     }
-
-    @PreDestroy
-    public void end() {
-        System.out.println("Clean up of managed bean");
-    }
-
 
     public List<Cigar> getCigars() {
         return cigars;
